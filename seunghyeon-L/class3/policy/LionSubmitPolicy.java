@@ -1,0 +1,8 @@
+package class3.policy;
+
+public class LionSubmitPolicy implements SubmitPolicy{
+    public boolean canSubmit(){
+        return true;
+    }
+
+}
