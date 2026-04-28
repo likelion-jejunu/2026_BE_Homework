@@ -1,6 +1,6 @@
-package oop.prac1;
+package oop.prac1.music_final;
 
-public class MusicPlaterFin {
+public class MusicPlayerFin {
     public static void main(String[] args) {
         MusicPlayer player = new MusicPlayer();
 

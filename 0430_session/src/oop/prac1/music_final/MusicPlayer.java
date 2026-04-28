@@ -1,4 +1,4 @@
-package oop.prac1;
+package oop.prac1.music_final;
 
 public class MusicPlayer {
     int volume = 0;
