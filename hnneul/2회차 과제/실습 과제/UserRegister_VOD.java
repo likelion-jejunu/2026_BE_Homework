@@ -1,0 +1,93 @@
+package practice.UserRester;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Scanner;
+
+public class UserRegister_VOD {
+    public static void main(String[] args) {
+        System.out.println("회원등록");
+        Scanner sc = new Scanner(System.in);
+        boolean register = false;
+
+        while(!register){
+            System.out.println("회원가입을 하시겠습니까?");
+            System.out.println("y:진행    n:종료 ");
+            System.out.print(">> ");
+
+            String rester_input = sc.nextLine();
+
+            if(rester_input.equalsIgnoreCase("y")){
+                register = true;
+                System.out.println("회원가입이 진행됩니다.");
+            } else if (rester_input.equalsIgnoreCase("n")) {
+                System.out.println("회원가입이 종료됩니다.");
+                System.exit(0);
+            } else {
+                System.out.println("입력값을 확인해주세요.");
+            }
+        }
+
+        ArrayList users = new ArrayList();
+
+        while (true){
+            HashMap user = new HashMap();
+
+            System.out.print("ID: ");
+            String username = sc.nextLine();
+
+            String password = "";
+            while(true){
+                System.out.print("PW: ");
+                password = sc.nextLine();
+                System.out.print("PW 확인: ");
+                String password_confirm = sc.nextLine();
+
+                if (password.equals(password_confirm)){
+                    break;
+                }else{
+                    System.out.println("PW가 일치하지 않습니다.");
+                    System.out.println("PW를 다시 입력해주세요.");
+                }
+            }
+            System.out.print("성명: ");
+            String name = sc.nextLine();
+
+            String birth_date = "";
+            while(true){
+                System.out.print("생년월일(6자리): ");
+                birth_date = sc.nextLine();
+                if(birth_date.length() == 6){
+                    break;
+                } else{
+                    System.out.println("생년월일 자릿수가 올바르지 않습니다.");
+                    System.out.println("다시 입력해주세요.");
+                }
+            }
+
+            System.out.print("이메일: ");
+            String email = sc.nextLine();
+
+            user.put("username",username);
+            user.put("password",password);
+            user.put("name",name);
+            user.put("birth_date",birth_date);
+            user.put("email",email);
+
+            users.add(user);
+            System.out.println(user.get("name") + " 님, 가입을 환영합니다.");
+            System.out.println("ID는 " + user.get("username") + " 입니다");
+
+            System.out.println("회원가입을 이어서 진행하시겠습니까?");
+            System.out.println("y:진행    n:종료 ");
+            System.out.print(">> ");
+            String rester_again= sc.nextLine();
+
+            if (rester_again.equalsIgnoreCase("y")){
+                ;
+            } else if (rester_again.equalsIgnoreCase("n")) {
+                System.exit(0);
+            }
+        }
+    }
+}
