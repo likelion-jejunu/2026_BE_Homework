@@ -1,0 +1,30 @@
+class Solution {
+    public String solution(String s, String skip, int index) {
+        StringBuilder answer = new StringBuilder();
+        
+        Set<Character> skipSet = new HashSet<>();
+        for (char ch : skip.toCharArray()) {
+            skipSet.add(ch);
+        }
+        
+        for (char ch : s.toCharArray()) {
+            int count = 0;
+            
+            while (count < index) {
+                ch++; 
+                
+                if (ch > 'z') {
+                    ch = 'a'; 
+                }
+                
+                if (!skipSet.contains(ch)) {
+                    count++;
+                }
+            }
+
+            answer.append(ch);
+        }
+        
+        return answer.toString();
+    }
+}
